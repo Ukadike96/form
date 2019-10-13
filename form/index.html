@@ -1,0 +1,84 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>This form will submit using ajax</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <script src="js/form.js"></script>
+  <script>
+
+  $(function () {
+
+          $('form').on('submit', function (e) {
+
+            e.preventDefault();
+
+            var my = document.getElementById("name")
+            console.log(my);
+
+            ajaxRequest = $.ajax({
+              type: 'post',
+              url: 'send.php',
+              data: $('form').serialize(),
+
+             });
+
+
+        });
+          });
+
+
+
+
+     </script>
+
+
+  </head>
+  <body>
+	<br>
+
+    <div class="col-md-6 col-md-offset-3">
+
+     	<div class="panel panel-primary">
+        <div id="form-messages">
+        </div>
+        	<div class="panel-heading">
+            	<center>This will be in the center</center>
+            </div>
+            <div class="panel-body">
+            	<div class="col-md-12">
+                	<form class="form-group" id="contact" method="post" action="send.php">
+                	<label> Product Name</label>
+                    <input type="text" class="form-control myInputs" placeholder="Name of the product" name="name"  id="name"required>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label> Quantity</label>
+                        <input type="number" class="form-control myInputs" placeholder="Quantity" name="qty"  id="qty" required value="0">
+                      </div>
+                    	<div class="col-md-4">
+                         <label> Size</label>
+                    <input type="number" class="form-control myInputs" placeholder="Enter the size" name="size"  id="size" required value="0">
+                        </div>
+                        <div class="col-md-4">
+                         <label> Price</label>
+                    <input type="number" class="form-control myInputs" placeholder="Enter your price" name="price" id="price" required value="0">
+                        </div>
+                    </div>
+                    <br>
+
+                        <input type="submit" value="Submit" class="btn btn-primary btn-md" onclick="document.location.reload(true)">
+
+                	</form>
+                </div>
+            </div>
+            <div class="panel-footer">
+            	<center>Thank you for filling in anticipation</center>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+  </body>
+
+</html>
